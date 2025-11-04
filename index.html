@@ -86,13 +86,7 @@ body {
     grid-template-columns: 1fr;
     margin-top: 20px;
   }
-  .controls {
-    width: 90%;
-    left: 10px;
-    right: 10px;
-    justify-content: center;
-    gap: 6px;
-  }
+  
 }
 @media (min-width: 768px) {
   .cv-wrap {
@@ -115,10 +109,10 @@ body {
     }
 
     header.cv-main{padding:18px 22px 14px}
-    /* === Presentación (foto + nombre + resumen) === */
+    
 .profile-top {
   display: flex;
-  flex-wrap: wrap; /* permite que la foto y el texto se ajusten */
+  flex-wrap: wrap; 
   align-items: center;
   justify-content: flex-start;
   gap: 20px;
@@ -129,7 +123,7 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
-/* contenedor de la imagen */
+
 .avatar {
   width: 120px;
   height: 120px;
@@ -152,7 +146,7 @@ body {
   object-fit: cover;
 }
 
-/* texto de presentación */
+
 .profile-text {
   flex: 1;
   min-width: 240px;
@@ -388,7 +382,7 @@ body {
 
 .cv-wrap {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
   width: 100%;
   max-width: 1100px;
@@ -400,7 +394,7 @@ body {
 
 
 .right {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 
@@ -418,7 +412,10 @@ body {
   padding: 8px 12px;
   z-index: 999;
 }
-
+body.dark .contact-list a,
+body.dark .contact-list p {
+  color: #fff;
+}
 
 @media (max-width: 768px) {
   .cv-wrap {
@@ -437,6 +434,27 @@ body {
   </style>
 
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+document.getElementById('downloadBtn').addEventListener('click', () => {
+  
+  const element = document.querySelector('.cv-wrap');
+
+  
+  const opt = {
+    margin: 0.4,
+    filename: 'Cristina_Voda_CV_2025.pdf',
+    image: { type: 'jpeg', quality: 0.75 },
+    html2canvas: { scale: 1.5, useCORS: true },
+    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+  };
+
+  
+  html2pdf().set(opt).from(element).save();
+});
+</script>
+
 <body>
   <div style="width:100%;max-width:1100px">
 
@@ -477,6 +495,9 @@ body {
     <a href="https://paginasweb-cristinavoda.netlify.app/" target="_blank" class="enlace-animado">
        Páginas Web
     </a>
+     <a href="https://cv-html-interactive.netlify.app/" target="_blank" class="enlace-animado">
+       CV-HTML-interactivo -modo y traducción
+    </a>
   </div> 
 
             </div>
@@ -494,8 +515,8 @@ body {
             <div class="job">
               <strong data-es="Comunicador — PWA"
               data-en="Communicator — PWA">Comunicador — PWA</strong>
-              <div style="color:var(--muted);margin-top:6px" data-es="App para personas con dificultades en la comunicación — grid de pictogramas, voz y galería personalizable.Desarrollada con HTML, CSS, JavaScript y Vue.js. Incluye galería personalizable, efectos visuales "y soporte de vozApp para personas con dificultades en la comunicación — grid de pictogramas, voz y galería personalizable.Desarrollada con HTML, CSS, JavaScript y Vue.js. Incluye galería personalizable, efectos visuales .
-                data-en="App for people with communication difficulties — pictogram grid, voice, and customizable gallery. Developed with HTML, CSS, JavaScript, and Vue.js. Includes customizable gallery and visual effects."></div>
+              <div style="color:var(--muted);margin-top:6px" data-es="App para personas con dificultades en la comunicación — grid de pictogramas, voz y galería persona" 
+                data-en="App for people with communication difficulties — pictogram grid, voice, and customizable gallery. ">App para personas con dificultades en la comunicación — grid de pictogramas, voz y galería persona" </div>
             </div>
 
             <div class="job">
@@ -509,13 +530,13 @@ body {
               <strong data-es="Portfolio Interiorista"
               data-en="Interior Design Portfolio">Portfolio Interiorista</strong>
               <div style="color:var(--muted);margin-top:6px" data-es="Página web de presentación para un estudio de interiorismo. Diseño visual refinado con efecto cristal, video de fondo, navegación adaptable y paletas cromáticas elegantes. Desarrollada con HTML, CSS, JavaScript, TailwindCSS y Vue.js. Optimizada para ordenadores, tablets y móviles"
-              data-en="Presentation website for an interior design studio. Refined visual design with a glass effect, background video, responsive navigation, and elegant color palettes. Developed with HTML, CSS, JavaScript, TailwindCSS, and Vue.js. Optimized for desktop, tablet, and mobile devices.">Página web de presentación para un estudio de interiorismo. Diseño visual refinado con efecto cristal, video de fondo, navegación adaptable y paletas cromáticas elegantes. Desarrollada con HTML, CSS, JavaScript, TailwindCSS y Vue.js. Optimizada para ordenadores, tablets y móviles.</div>
+              data-en="Presentation website for an interior design studio. Refined visual design with a glass effect, background video, responsive navigation, and elegant color palettes.">Página web de presentación para un estudio de interiorismo. Diseño visual refinado con efecto cristal, video de fondo, navegación adaptable y paletas cromáticas elegantes. </div>
 
             
             <div class="job">
               <strong data-es="Buscador centralizado de empleo"
               data-en="Centralized job search engine">Buscador centralizado de empleo</strong>
-              <div style="color:var(--muted);margin-top:7px">Aplicación web que permite a los usuarios buscar ofertas de empleo desde un único punto, guardar sus datos personales y currículum en la sección “Mi Perfil”, y autocompletar formularios en portales de empleo de manera rápida y segura. Desarrollada con HTML, CSS, JavaScript y Vue.js. Optimizada para ordenadores, tablets y móviles.</div>
+              <div style="color:var(--muted);margin-top:7px">Aplicación web que permite a los usuarios buscar ofertas de empleo desde un único punto, guardar sus datos personales y currículum en la sección “Mi Perfil”, y autocompletar formularios en portales de empleo de manera rápida y segura. </div>
             </div>
 
           </div>
@@ -527,129 +548,107 @@ body {
 
       </section>
       
-      <aside class="card right fade-in" id="sideCard">
-       
-
-        <div class="section">
-          <h3 data-es="Habilidades"
-          data-en="Skills">Habilidades</h3>
-          <div class="skills">
-            <span class="skill">HTML</span>
-            <span class="skill">CSS</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">Vue</span>
-            <span class="skill">Django</span>
-            <span class="skill">Blender </span>
-            <span class="skill">SQL</span>
-            <span class="skill">MongoDB</span>
-            <span class="skill">Express</span>
-            <span class="skill">Jest</span>
-
-          </div>
-        </div>
-
-        <div class="section">
-          <h3 data-es="Idiomas"
-          data-en="Languages">Idiomas</h3>
-          <div class="list">
-            <div data-es="Español — Nativo"
-            data-en="Spanish — Native">Español — Nativo</div>
-            <div data-es="Inglés — Avanzado"
-            data-en="English — Advanced">Inglés — Avanzado</div>
-             <div data-es="Catalan — Avanzado"
-             data-en="Catalan — Advanced">Catalan — Avanzado</div>
-           <div data-es="Frances — Intermedio"
-           data-en="French — Intermediate">Frances — Intermedio</div>
-            <div data-es="Griego — Avanzado"
-            data-en="Greek — Advanced">Griego — Avanzado</div>
-
-          </div>
-        </div>
-         <div class="section">
-          <h3 data-es="Educación"
-          data-en="Education">Educación</h3>
-          <div class="list">
-            
-              <small>2021 – 2024</small>
-              
-              
-              <div data-es="FP-Tehnico Superior de Informatica"
-              data-en="FP-Higher Computer Technician"><strong>FP-Tehnico Superior de Informatica</strong></div>
-              <div data-es="FP-Tehnico experto en Interiorismo"
-              data-en="FP-Expert Interior Design Technician"><strong>FP-Tehnico experto en Interiorismo</strong></div>
-              <div data-es="Cyberseguridad-Gestion de la seguridad informatica de las empresas"
-              data-en="Cybersecurity - Management of corporate information security"><strong>Cyberseguridad-Gestion de la seguridad informatica de las empresas</strong></div>
-              <div data-es="Curso Desarrollo Web"
-              data-en="Web Development Course"><strong>Curso Desarrollo Web</strong></div>
-             
-              <div style="color:var(--muted);margin-top:8px;gap: 6px;
-              padding: 4px;">HTML, CSS, JavaScript, Vue, Django (conceptos básicos).</div>
-            </div>
-          
-        </div>
-
-      </section>
-         <div class="section">
-          <h3 data-es="Experiencia"
-          data-en="Experience">Experiencia</h3>
-          <div class="list">
-            <div class="job">
-              <small data-es="2024 – Actual • Freelance- Desarrollo Web"
-              data-en="2024 – PDesarrolladora Frontend (HTML, CSS, Vue, JS, React,Python,SQL,Mongo DB)"
-              data-en="Frontend Developer (HTML, CSS, Vue, JS, React, Python, SQL, Mongo DB)">Desarrolladora Frontend (HTML, CSS, Vue, JS, React,Python,SQL,Mongo DB)</strong>
-              <div data-es="Implementación de interfaces accesibles, PWA y componentes reutilizables"
-              data-en="Implementing accessible interfaces, PWAs, and reusable components" style="color:var(--muted);margin-top:6px">Implementación de interfaces accesibles, PWA y componentes reutilizables.</div>
-            </div>
-            
-            <div class="job">
-              <small data-es=" Diseñadora de Interiores"
-              data-en="Interior Designer">2023 • Diseñadora de Interiores</small>
-              <strong>Proyectos residenciales y comerciales</strong>
-              <div  data-es="Creación de propuestas visuales, paletas y presentaciones para clientes" 
-              data-en="Creating visual proposals, palettes and presentations for clients"style="color:var(--muted);margin-top:6px">Creación de propuestas visuales, paletas y presentaciones para clientes.</div>
-            </div>
-          </div>
-        </div>
- <aside class="card right fade-in" id="sideCard">
-  
-      <div class="section">
-  <h3>Contacto</h3>
-
-  <div class="contact-list">
-    <p>
-      <a href="mailto:cristinavoda483@gmail.com" class="contact-link">
-        cristinavoda483@gmail.com
-      </a>
-    </p>
-
-    <p>
-      <a href="https://github.com/cristinavoda" target="_blank">
-        github.com/cristinavoda
-      </a>
-    </p>
-
-    <p data-es="Bell Lloc d'Urgell - Lleida - España"
-       data-en="Bell Lloc d'Urgell - Lleida - Spain">
-       Bell Lloc d'Urgell - Lleida - España
-    </p>
+    <aside class="card right fade-in" id="sideCard">
+  <div class="section">
+    <h3 data-es="Habilidades" data-en="Skills">Habilidades</h3>
+    <div class="skills">
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">Vue</span>
+      <span class="skill">Django</span>
+      <span class="skill">Blender</span>
+      <span class="skill">SQL</span>
+      <span class="skill">MongoDB</span>
+      <span class="skill">Express</span>
+      <span class="skill">Jest</span>
+    </div>
   </div>
-</div>
-  
 
-          <div class="social-icons">
-  <a
-    href="https://wa.me/34634688218"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="WhatsApp"
-    class="whatsapp-btn"
-  >
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
+  <div class="section">
+    <h3 data-es="Idiomas" data-en="Languages">Idiomas</h3>
+    <div class="list">
+      <div data-es="Español — Nativo" data-en="Spanish — Native">Español — Nativo</div>
+      <div data-es="Inglés — Avanzado" data-en="English — Advanced">Inglés — Avanzado</div>
+      <div data-es="Catalán — Avanzado" data-en="Catalan — Advanced">Catalán — Avanzado</div>
+      <div data-es="Francés — Intermedio" data-en="French — Intermediate">Francés — Intermedio</div>
+      <div data-es="Griego — Avanzado" data-en="Greek — Advanced">Griego — Avanzado</div>
+    </div>
+  </div>
 
+  <div class="section">
+    <h3 data-es="Educación" data-en="Education">Educación</h3>
+    <div class="list">
+      <small>2021 – 2024</small>
+      <div data-es="FP-Tehnico Superior de Informática" data-en="FP-Higher Computer Technician">
+        <strong>FP-Tehnico Superior de Informática</strong>
+      </div>
+      <div data-es="FP-Tehnico experto en Interiorismo" data-en="FP-Expert Interior Design Technician">
+        <strong>FP-Tehnico experto en Interiorismo</strong>
+      </div>
+      <div data-es="Ciberseguridad - Gestión de la seguridad informática de las empresas"
+           data-en="Cybersecurity - Management of corporate information security">
+        <strong>Ciberseguridad - Gestión de la seguridad informática de las empresas</strong>
+      </div>
+      <div data-es="Curso Desarrollo Web" data-en="Web Development Course">
+        <strong>Curso Desarrollo Web</strong>
+      </div>
+      <div style="color:var(--muted);margin-top:8px;">
+        HTML, CSS, JavaScript, Vue, Django (conceptos básicos).
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3 data-es="Experiencia" data-en="Experience">Experiencia</h3>
+    <div class="list">
+      <div class="job">
+        <small data-es="2024 – Actual • Freelance" data-en="2024 – Present • Freelance">2024 – Actual • Freelance</small>
+        <strong data-es="Desarrolladora Frontend" data-en="Frontend Developer">Desarrolladora Frontend</strong>
+        <div style="color:var(--muted);margin-top:6px"
+             data-es="Implementación de interfaces accesibles, PWA y componentes reutilizables"
+             data-en="Implementing accessible interfaces, PWAs, and reusable components">
+          Implementación de interfaces accesibles, PWA y componentes reutilizables.
         </div>
-      </aside>
+      </div>
+      <div class="job">
+        <small data-es="2023 • Diseñadora de Interiores" data-en="2023 • Interior Designer">
+          2023 • Diseñadora de Interiores
+        </small>
+        <strong data-es="Proyectos residenciales y comerciales"
+                data-en="Residential and commercial projects">Proyectos residenciales y comerciales</strong>
+        <div style="color:var(--muted);margin-top:6px"
+             data-es="Creación de propuestas visuales, paletas y presentaciones para clientes"
+             data-en="Creating visual proposals, palettes, and client presentations">
+          Creación de propuestas visuales, paletas y presentaciones para clientes.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section">
+    <h3 data-es="Contacto" data-en="Contact">Contacto</h3>
+    <div class="contact-list">
+      <p>
+        <a href="mailto:cristinavoda483@gmail.com" class="contact-link">cristinavoda483@gmail.com</a>
+      </p>
+      <p>
+        <a href="https://github.com/cristinavoda" target="_blank">github.com/cristinavoda</a>
+      </p>
+      <p data-es="Bell Lloc d'Urgell - Lleida - España"
+         data-en="Bell Lloc d'Urgell - Lleida - Spain">Bell Lloc d'Urgell - Lleida - España</p>
+    </div>
+  </div>
+
+  
+  <div class="social-icons">
+    <a href="https://wa.me/34634688218" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="whatsapp-btn">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+</aside>
+  
     </main>
   </div>
 
@@ -684,7 +683,7 @@ body {
     document.getElementById('printBtn').addEventListener('click', ()=>{
       window.print();
       const esBtn = document.getElementById('langEs');
-const enBtn = document.getElementById('langEn');
+      const enBtn = document.getElementById('langEn');
 
 function changeLang(lang) {
   document.querySelectorAll('[data-es]').forEach(el => {
@@ -694,6 +693,13 @@ function changeLang(lang) {
 
 esBtn.addEventListener('click', () => changeLang('es'));
 enBtn.addEventListener('click', () => changeLang('en'));
+document.documentElement.setAttribute("data-theme", localStorage.getItem("cv-theme") || "");
+  const lang = localStorage.getItem("lang") || "es";
+  document.querySelectorAll("[data-es]").forEach(el => {
+    el.textContent = el.getAttribute(`data-${lang}`);
+  });
+
+  setTimeout(() => window.print(), 200);
     });
 
     
@@ -706,12 +712,7 @@ enBtn.addEventListener('click', () => changeLang('en'));
       const esBtn = document.getElementById('langEs');
 const enBtn = document.getElementById('langEn');
 
-function changeLang(lang) {
-  document.querySelectorAll('[data-es]').forEach(el => {
-     const text = el.getAttribute(`data-${lang}`);
-    if (text) el.textContent = text; 
-  });
-}
+
 
     });
 const esBtn = document.getElementById('langEs');
@@ -722,6 +723,8 @@ function changeLang(lang) {
     el.textContent = el.getAttribute(`data-${lang}`);
   });
 }
+const savedLang = localStorage.getItem("lang") || "es";
+  changeLang(savedLang);
 
 esBtn.addEventListener('click', () => changeLang('es'));
 enBtn.addEventListener('click', () => changeLang('en'));
