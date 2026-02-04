@@ -26,54 +26,23 @@
 
     *{box-sizing: border-box}
    
-body {
-  margin: 0;
-  padding: 0;
-  width:auto ;
- background: linear-gradient(180deg,var(--bg), #80cec7);
-  color: var(--text, #222);
-  font-family: "Poppins", sans-serif;
-  display: flex;
-  justify-content:flex-start;
-  min-height: 100vh;
-  transition: background 0.3s ease, color 0.3s ease;
-}
 
 .cv-wrap {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 30px;
-  width: 100%;
   max-width: 1100px;
-   margin: 20px auto 40px; 
-  padding: 20px;
-  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 24px;
 }
 
 .cv-main {
-  grid-column: 1;
   width: 100%;
 }
 
-.right {
-  grid-column: 2;
-
+aside {
+  width: 100%;
+  position: static;
 }
 
 
-.controls {
-  position: fixed;
-  top: 10px;
-  left: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  background: transparent;
-  backdrop-filter: blur(28px);
-  border-radius: 12px;
-  padding: 8px 12px;
-  z-index: 999;
-}
 
 
 @media (max-width: 768px) {
@@ -86,7 +55,7 @@ body {
 @media (min-width: 768px) {
   .cv-wrap {
     grid-template-columns: 1fr;
-    margin-top: 120px;
+    margin-top: 20px;
    left: 5%;
   }
   .controls {
@@ -132,7 +101,7 @@ body {
 
 .avatar:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  box-shadow: 16px 6px 18px rgba(4, 49, 107, 0.2);
 }
 
 .avatar img {
@@ -171,13 +140,13 @@ body {
     .avatar{width:110px;height:110px;border-radius:12px;flex-shrink:0;overflow:hidden;border:2px solid rgba(0,0,0,0.06)}
     .avatar img{width:100%;height:100%;object-fit:cover;display:block}
 
-    h1{font-size:1.6rem;margin:0 0 4px;color:var(--accent)}
+    h1{font-size:1.6rem;margin:0 0 4px;color: darkcyan}
     h2{margin:0;font-weight:600;font-size:1rem;color:var(--metal)}
 
     .summary{margin-top:12px;color:var(--muted);line-height:1.5}
 
     .section{margin-top:18px}
-    .section h3{margin:0 0 10px;font-size:1rem;color:var(--accent)}
+    .section h3{margin:0 0 10px;font-size:1rem;color: darkcyan}
 
     .list{display:flex;flex-direction:column;gap:12px}
     .job{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent)}
@@ -193,7 +162,7 @@ body {
 
     
     .controls{display:flex;gap:8px;align-items:center}
-    .btn{border:0;background:var(--accent);color:white;padding:8px 12px;border-radius:8px;cursor:pointer}
+    .btn{border:0;background: darkcyan;color:white;padding:8px 12px;border-radius:8px;cursor:pointer}
       .btn:hover  {
   transform: translateY(-4px); 
   box-shadow: 4px 6px 20px rgba(0, 255, 255, 0.15); 
@@ -204,25 +173,37 @@ body {
   box-shadow: 4px 6px 20px rgba(243, 245, 245, 0.15); 
 }
     .project-link {
-  color: #2563eb;
-  text-decoration: underline;
+  color: darkcyan;
   font-weight: 500;
 }
 .project-link:hover {
   opacity: 0.8;
 }
 
-   
-    
-    @media print{
-      body{padding:0;background:white}
-      .cv-wrap{max-width:100%;box-shadow:none}
-      .controls{display:none}
-    }
+ @media print {
+  body {
+    background: white !important;
+  }
 
+  .controls,
+  .social-icons,
+  .whatsapp-btn {
+    display: none !important;
+  }
+
+  .card {
+    box-shadow: none;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+  
     
-    .fade-in{opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .6s ease}
-    .fade-in.show{opacity:1;transform:none}
+    
+    
 
 .section {
   border-top: 1px solid rgba(120, 120, 120, 0.25); 
@@ -231,8 +212,8 @@ body {
   transition: border-color 0.4s ease;
 } 
 body.dark .section { 
-  border-top: 1px solid rgba y depende  de pantalla se s(231, 238, 238, 0.966); 
-} y depende  de pantalla se s
+  border-top: 1px solid rgba (231, 238, 238, 0.966); 
+} 
 
 
 .section.fade-in {
@@ -277,14 +258,16 @@ body.dark .section {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  color:darkcyan
 }
 
 .enlace-animado {
   position: relative;
-  color: var(--accent, #00bcd4);
+  color:  darkcyan;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
+ 
 }
 
 .enlace-animado::after {
@@ -296,6 +279,7 @@ body.dark .section {
   height: 2px;
   background: linear-gradient(90deg, var(--accent, #00bcd4), #b0b0b0);
   transition: width 0.4s ease;
+   border-bottom: 2px solid #00eaff;
 }
 
 .enlace-animado:hover {
@@ -312,6 +296,18 @@ body.dark .section {
   cursor: pointer;
   transition: transform 0.3s ease;
 }}
+
+.contact-link {
+  color: darkcyan;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.contact-link:hover {
+   color: #00eaff;
+  border-bottom: 2px solid #00eaff;
+  
+}
 .controls {
   position: fixed;      
   top: 15px;            
@@ -336,7 +332,7 @@ body.dark .section {
 
 
 .btn.email-btn {
-  background-color: var(--accent, #0f4c4c);
+  background-color: darkcyan;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -384,22 +380,7 @@ body {
 }
 
 
-.cv-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  width: 100%;
-  max-width: 1100px;
-  margin: 100px auto 40px auto;
-  padding: 20px;
-  align-items: start;
-  box-sizing: border-box;
-}
 
-
-.right {
-  margin-top: 0px;
-}
 
 
 .controls {
@@ -420,6 +401,20 @@ body.dark .contact-list a,
 body.dark .contact-list p {
   color: #fff;
 }
+.cv-wrap {
+  max-width: 1100px;
+  margin-top: rem;
+  padding: 4rem 2rem 2rem;
+}
+
+.cv-main {
+  width: 100%;
+}
+
+aside {
+  width: 100%;
+  position: static;
+}
 
 @media (max-width: 768px) {
   .cv-wrap {
@@ -434,10 +429,21 @@ body.dark .contact-list p {
     justify-content: center;
   }
 }
+@media (min-width: 1024px) {
+  .cv-wrap.two-columns {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+  }
+}
+
 
   </style>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script><script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+<script>
 document.getElementById('downloadBtn').addEventListener('click', () => {
   
   const element = document.querySelector('.cv-wrap');
@@ -464,8 +470,8 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
 
     <div class="controls" style="justify-content:flex-end;margin-bottom:12px">
       <button id="toggleTheme" class="btn ghost" title="Cambiar tema">🌗 Modo</button>
-      <button id="printBtn" class="btn">📄 Imprimir / PDF</button>
-      <button id="downloadBtn" class="btn ghost">⬇️ Descargar CV</button>
+      <button id="printBtn" class="btn">📄 Imprimir </button>
+      <button id="downloadBtn" class="btn ghost"> Descargar CV</button>
       <a href="mailto:cristinavoda483@gmail.com" class="btn email-btn" title="Enviar email">✉️ Email</a>
       <button id="langEs" class="btn flag">🇪🇸</button>
       <button id="langEn" class="btn flag">EN</button>
@@ -484,6 +490,8 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
           </div>
           <div>
             <h1>Cristina Voda</h1>
+            
+
             <h2 data-es="Desarrolladora Web &amp; Diseñadora de Interiores" data-en="Web Developer &amp; Interior Designer">Desarrolladora Web &amp; Diseñadora de Interiores</h2>
            
             <p class="summary" data-es="Apasionada por la tecnología y el diseño, creo experiencias digitales funcionales y estéticas." data-en="Passionate about technology and design, I create digital experiences that are both functional and beautiful.">Apasionada por la tecnología y el diseño, creo experiencias digitales funcionales y estéticas.</p>
@@ -529,23 +537,37 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
 </a>
             </div>
  
-            <div class="job">  PWA">Comunicador — PWA</strong>
-              <div style="color:var(--muted);margin-top:6px" data-es="App para personas con dificultades en la comunicación — grid de pictogramas, voz y galería persona" data-en="App for people with communication difficulties — pictogram grid, voice, and customizable gallery. ">App para personas con dificultades en la comunicación — grid de pictogramas, voz y galería persona</div>
-<a href="https://comunicador-app.netlify.app/mi-comunicador" target="_blank" rel="noopener">
-  Comunicador – https://comunicador-app.netlify.app/mi-comunicador
-</a>
+     <div class="job">
+  <strong data-es="Comunicador — PWA" data-en="Communicator — PWA">
+    Comunicador — PWA
+  </strong>
 
-             </div>
+  <div style="color:var(--muted);margin-top:6px"
+       data-es="App para personas con dificultades en la comunicación — grid de pictogramas, voz y galería personal"
+       data-en="App for people with communication difficulties — pictogram grid, voice, and customizable gallery.">
+    App para personas con dificultades en la comunicación — grid de pictogramas, voz y galería personal
+  </div>
+
+  <a href="https://comunicador-app.netlify.app/mi-comunicador"
+     target="_blank"
+     rel="noopener"
+     class="project-link">
+    Comunicador – https://comunicador-app.netlify.app/mi-comunicador
+  </a>
+</div>
+  
 
             <div class="job">
               <strong data-es="Aprender a escribir" data-en="Learn to write">Aprender a escribir</strong>
               <div style="color:var(--muted);margin-top:6px" data-es="Aplicación educativa diseñada para " data-en="Educational application designed to help children begin writing in a visual and interactive way.">Aplicación educativa diseñada para ayudar a niños a iniciarse en la escritura de forma visual e interactiva</div>
-<a href="https://escribir-app.netlify.app/" target="_blank" rel="noopener">
+<a href="https://escribir-app.netlify.app/"
+   target="_blank"
+   rel="noopener"
+   class="project-link">
   Escribir App – https://escribir-app.netlify.app/
 </a>
 
-
-            </div>
+</div>
             <div class="job">
               <strong data-es="Brand Protect" data-en="Brand Protect">Brand Protect</strong>
               <div style="color:var(--muted);margin-top:6px" data-es="Herramienta web que analiza contenido de páginas para identificar repeticiones de palabras, nombres y patrones asociados a una marca, orientada a la detección temprana de posibles casos de suplantación de identidad." data-en="A web tool that analyzes page content to identify repetitions of words, names, and patterns associated with a brand, aimed at the early detection of possible cases of identity theft.">Herramienta web que analiza contenido de páginas para identificar repeticiones de palabras, nombres y patrones asociados a una marca, orientada a la detección temprana de posibles casos de suplantación de identidad.</div>
@@ -554,22 +576,20 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
                <div class="job">
               <strong data-es="Portfolio Interiorista" data-en="Interior Design Portfolio">Portfolio Interiorista</strong>
               <div style="color:var(--muted);margin-top:6px" data-es="Página web de presentación para un estudio de interiorismo. Diseño visual refinado con efecto cristal, video de fondo, navegación adaptable y paletas cromáticas elegantes. Desarrollada con HTML, CSS, JavaScript, TailwindCSS y Vue.js. Optimizada para ordenadores, tablets y móviles" data-en="Presentation website for an interior design studio. Refined visual design with a glass effect, background video, responsive navigation, and elegant color palettes.">Página web de presentación para un estudio de interiorismo. Diseño visual refinado con efecto cristal, video de fondo, navegación adaptable y paletas cromáticas elegantes. Desarrollada con HTML, CSS, JavaScript, TailwindCSS y Vue.js. Optimizada para ordenadores, tablets y móviles</div>
-
-          <a href="https://interiorista.netlify.app/" target="_blank" rel="noopener">
+<a href="https://interiorista.netlify.app/"
+   target="_blank"
+   rel="noopener"
+   class="project-link">
   Interiorista – https://interiorista.netlify.app/
 </a>
 
 
+ </div>
+          </div>
           </div>
         </div>
 
-        <div class="section">
-          <h3></h3>
-          
-
-      </div></div></section>
       
-    <aside class="card right fade-in show" id="sideCard">
   <div class="section">
     <h3 data-es="Habilidades" data-en="Skills">Habilidades</h3>
     <div class="skills">
@@ -635,7 +655,7 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
         <a href="mailto:cristinavoda483@gmail.com" class="contact-link">cristinavoda483@gmail.com</a>
       </p>
       <p>
-        <a href="https://github.com/cristinavoda" target="_blank">github.com/cristinavoda</a>
+        <a href="https://github.com/cristinavoda" class="contact-link" target="_blank">github.com/cristinavoda</a>
       </p>
       <p data-es="Bell Lloc d'Urgell - Lleida - España" data-en="Bell Lloc d'Urgell - Lleida - Spain">Bell Lloc d'Urgell - Lleida - España</p>
     </div>
